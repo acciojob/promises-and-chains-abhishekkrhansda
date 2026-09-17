@@ -43,7 +43,7 @@ let validate = (age, name) => {
 
     return new Promise((resolve, reject) => {
 
-        if (age.length === 0 || name.length === 0) {
+        if (age.trim() === "" || name.trim() === "" || isNaN(age)) {
             reject("Please enter valid details");
         } 
         else {
