@@ -8,9 +8,9 @@ form.addEventListener("submit", (e) => {
 
     validate(age, name)
         .then((response) => {
-            console.log(response);
+            alert(response);
 
-            return checkAge(age);
+            return checkAge(age,name);
         })
         .then((response) => {
             alert(response);
@@ -21,17 +21,17 @@ form.addEventListener("submit", (e) => {
 });
 
 
-let checkAge = (age) => {
+let checkAge = (age, name) => {
 
     return new Promise((resolve, reject) => {
 
         setTimeout(() => {
 
             if (age >= 18) {
-                resolve("Welcome You can vote");
+                resolve("Welcome " + name + " You can vote");
             } 
             else {
-                reject("Oh sorry. You aren't old enough");
+                reject("Oh sorry " + name + " You aren't old enough");
             }
 
         }, 4000);
